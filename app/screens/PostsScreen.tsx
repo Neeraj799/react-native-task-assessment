@@ -38,7 +38,7 @@ export default function PostsScreen() {
 
     if (!refreshing) setLoading(true);
 
-    // 🌐 Step 1: Check Internet Before Fetching
+    // Check Internet Before Fetching
     const net = await NetInfo.fetch();
     if (!net.isConnected) {
       setLoading(false);
@@ -54,7 +54,7 @@ export default function PostsScreen() {
       return;
     }
 
-    // Step 2: Make API Call
+    // Make API Call
     try {
       const response = await fetch(
         "https://jsonplaceholder.typicode.com/posts"
@@ -73,10 +73,8 @@ export default function PostsScreen() {
       const data = await response.json();
       setPosts(data);
 
-      // Clear error on success
       setError("");
 
-      // Apply existing search filter
       const initial = data.filter((post) =>
         post.title.toLowerCase().includes(search.toLowerCase())
       );
@@ -95,12 +93,11 @@ export default function PostsScreen() {
     }
   };
 
-  // Fetch on app start
   useEffect(() => {
     fetchPosts();
   }, []);
 
-  // Debounced Search + Save to AsyncStorage
+  // Debounced Search and Save to AsyncStorage
   useEffect(() => {
     if (debounceTimer.current) clearTimeout(debounceTimer.current);
 
