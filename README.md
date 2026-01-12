@@ -1,50 +1,159 @@
-# Welcome to your Expo app 👋
+🚀 React Native Posts App — Assessment Project
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A simple React Native app built using Expo, featuring:
 
-## Get started
+Fetching posts from an API
 
-1. Install dependencies
+Search with instant filtering
 
-   ```bash
-   npm install
-   ```
+Search persistence using AsyncStorage
 
-2. Start the app
+Offline detection using NetInfo
 
-   ```bash
-   npx expo start
-   ```
+Toast notifications
 
-In the output, you'll find options to open the app in a
+Pull-to-refresh
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+Error handling (offline, network, server errors)
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+This project fulfills all requirements of the React Native Intern Combined Assessment.
 
-## Get a fresh project
+📸 Features Overview
+✔ 1. Fetch Posts
 
-When you're ready, run:
+Fetches posts from:
+https://jsonplaceholder.typicode.com/posts
 
-```bash
-npm run reset-project
-```
+Displays a clean list with title + body.
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+✔ 2. Search
 
-## Learn more
+Real-time search with debouncing (300ms).
 
-To learn more about developing your project with Expo, look at the following resources:
+Case-insensitive filtering.
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+Empty search shows all posts.
 
-## Join the community
+✔ 3. Save Search (AsyncStorage)
 
-Join our community of developers creating universal apps.
+Typed search is saved automatically.
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+When the app restarts:
+
+Search box auto-fills
+
+Filter is applied instantly
+
+✔ 4. Error Handling
+
+Handles all error cases:
+
+Condition	App Behavior
+No Internet	Offline screen + Retry button + Toast
+Server Error (4xx/5xx)	Error screen + Retry
+Network Error	Error screen + Retry
+No results	“No posts found.”
+✔ 5. Pull To Refresh
+
+Built-in pull-to-refresh support.
+
+Works correctly even in offline mode.
+
+🛠️ Tech Stack
+
+React Native (Expo)
+
+NativeWind (Tailwind CSS for RN)
+
+AsyncStorage
+
+NetInfo
+
+React Native Toast Message
+
+📦 Installation & Setup
+
+1️⃣ Clone the project
+
+git clone <repo-url>
+cd <folder>
+
+
+2️⃣ Install dependencies
+
+npm install
+
+
+3️⃣ Start the project
+
+npx expo start
+
+4️⃣ Run on device
+
+Scan the QR code using Expo Go
+
+Or press a to open Android emulator
+
+Or press w to open Web version
+
+🧪 Testing Guide
+✔ Fetch & UI
+
+App loads posts
+
+Cards display title + body
+
+✔ Search
+
+Type text → list filters instantly
+
+Case-insensitive
+
+No results → shows empty message
+
+✔ Search Persistence
+
+Type search
+
+Close Expo Go
+
+Reopen → search auto-filled
+
+✔ Offline Mode
+
+Turn OFF Wi-Fi + Data
+
+App shows offline screen
+
+Retry works when online again
+
+✔ Pull-to-refresh
+
+Pull down → posts reload
+
+Works even offline
+
+✔ Error Handling
+
+Server error → shows server error UI
+
+Network error → shows network error UI
+
+All errors show Toast + Retry
+
+📁 Folder Structure
+
+/app
+  └── index.tsx
+  └── PostsScreen.tsx
+/components
+  └── (optional future components)
+/assets
+tailwind.config.js
+package.json
+README.md
+
+👨‍💻 Author
+
+Neeraj P C
+React Native Developer Intern (Assessment Project)
