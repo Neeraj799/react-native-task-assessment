@@ -50,7 +50,6 @@ export default function PostsScreen() {
       return;
     }
 
-    // Call API with axios
     try {
       const data = await fetchPostsAPI();
 
@@ -84,7 +83,6 @@ export default function PostsScreen() {
     }
   };
 
-  // Run API once on mount
   useEffect(() => {
     fetchPosts();
   }, []);
